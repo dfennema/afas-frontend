@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { ApiTools } from './api-tools/api-tools';
+import { Connect } from './connect/connect';
 
 export const routes: Routes = [
     { 
-        path: 'api-tools',
-        component: ApiTools
+        path: 'connect',
+        component: Connect
     }
 ];

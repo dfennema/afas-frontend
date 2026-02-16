@@ -1,0 +1,53 @@
+        @if (errorMessage()) {
+            <div class="alert alert-danger">
+                <p>{{ errorMessage() }}</p>
+            </div>
+        }
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="row d-flex justify-content-center">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Omgeving</span>
+                <input type="text" id="bedrijf" class="form-control" name="bedrijf" formControlName="bedrijf">
+                <select id="omgeving" class="form-select" aria-label="iets" name="omgeving" formControlName="omgeving"
+                    [(ngModel)]="geselecteerdeOmgeving">
+                    @for (omg of omgevingen; track omg.code) {
+                    <option [ngValue]="omg.code">{{ omg.omschrijving }}</option>
+                    }
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Token</span>
+                <!-- <div class="token-input-wrapper"> -->
+                    <input type="{{ showToken() ? 'text' : 'password' }}" id="token" class="form-control" name="token"
+                        formControlName="token" placeholder="Voer je token in">
+
+                    @if (showToken()) {
+                    <span class="glyphicon glyphicon-eye-close" aria-hidden="true" (click)="toggleTokenVisibility()"></span>
+                    } @else {
+
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true" (click)="toggleTokenVisibility()"></span>
+                    }
+
+                    <!-- <div [class]="{ 'glyphicon glyphicon-eye-ope resizable-span' : !showToken(), 'glyphicon glyphicon-eye-close resizable-span': showToken() }" 
+                        (click)="toggleTokenVisibility()"></div> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+
+    <p class="form-actions">
+        <button type="reset" class="btn btn-secondary" (click)="onReset()">Reset</button>
+        <!-- @if (form.touched && form.valid) { -->
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Verstuur</button>
+        <!-- } -->
+    </p>
+
+    <!-- @if (form.touched && form.invalid) {
+        <p class="control-error">Invalid form - please check your data</p>
+    } -->
+
+</form>
