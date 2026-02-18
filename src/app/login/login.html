@@ -1,0 +1,42 @@
+@if (errorMessage()) {
+<div class="alert alert-danger">
+    <p>{{ errorMessage() }}</p>
+</div>
+}
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="row d-flex justify-content-center">
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com">
+            </div>
+            <!-- <div class="mb-3">
+                <label for="bedrijf" class="form-label">Bedrijf</label>
+                <input type="bedrijf" class="form-control" id="bedrijf" placeholder="123456">
+            </div>
+            <div class="mb-3">
+                <label for="omgeving" class="form-label">Omgeving</label>
+                <select id="omgeving" class="form-select" aria-label="iets" name="omgeving" formControlName="omgeving"
+                    [(ngModel)]="geselecteerdeOmgeving">
+                    @for (omg of omgevingen; track omg.code) {
+                    <option [ngValue]="omg.code">{{ omg.omschrijving }}</option>
+                    }
+                </select>
+            </div> -->
+        </div>
+    </div>
+
+    <p class="form-actions">
+        <button type="reset" class="btn btn-secondary" (click)="onReset()">Reset</button>
+        <!-- @if (form.touch ed && form.valid) { -->
+        <button type="submit" class="btn btn-primary" >Login</button>
+        <!-- } -->
+    </p>
+
+    <!-- @if (form.touched && form.invalid) {
+        <p class="control-error">Invalid form - please check your data</p>
+    } -->
+
+</form>

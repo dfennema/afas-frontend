@@ -2,6 +2,13 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
 
+# Microsot authentication
+
+https://learn.microsoft.com/en-us/samples/azure-samples/ms-identity-ciam-javascript-tutorial/ms-identity-ciam-javascript-tutorial-2-sign-in-angular/
+
+https://www.npmjs.com/package/@azure/msal-angular
+
+
 ## Development server
 
 To start a local development server, run:
